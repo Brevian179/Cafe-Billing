@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKINIAC CYBER CAFE - POS System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>MAKINIAC CYBER CAFE - POS System</header>
+        
+        <div class="form-group">
+            <label for="order">Service ID:</label>
+            <input type="text" id="order" readonly>
+        </div>
+        
+        <div class="form-group">
+            <label for="service">Select Service:</label>
+            <select id="service">
+                <option value="10" data-id="P001">Printing - Ksh 10</option>
+                <option value="5" data-id="P002">Photocopy - Ksh 5</option>
+                <option value="50" data-id="B001">Binding - Ksh 50</option>
+                <option value="70" data-id="B002">Spiral Binding - Ksh 70</option>
+                <option value="200" data-id="O001">Online Services - Ksh 200</option>
+                <option value="10" data-id="B003">Browsing (Min Ksh 10, Ksh 1/min)</option>
+                <option value="" data-id="O002">Other Services (Enter Price Below)</option>
+            </select>
+        </div>
+        
+        <div class="form-group hidden" id="other-price-group">
+            <label for="other-price">Enter Price:</label>
+            <input type="number" id="other-price" min="1" value="10">
+        </div>
+        
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1">
+        </div>
+        
+        <button id="record-sale-btn">Record Sale</button>
+        <button id="record-debt-btn">Record Debt</button>
+        
+        <button id="admin-access-btn">Admin Access</button>
+        <div id="password-section" class="hidden">
+            <label for="admin-password">Enter Password:</label>
+            <input type="password" id="admin-password">
+            <button id="submit-password-btn">Submit</button>
+            <p id="attempts-remaining"></p>
+        </div>
+        
+        <div id="admin-section" class="hidden">
+            <h3>Sales History</h3>
+            <table>
+                <thead>
+                    <tr><th>Transaction ID</th><th>Service</th><th>Total (Ksh)</th><th>Date</th></tr>
+                </thead>
+                <tbody id="sales-list"></tbody>
+            </table>
+            
+            <h3>Debt Records</h3>
+            <table>
+                <thead>
+                    <tr><th>Transaction ID</th><th>Service</th><th>Total (Ksh)</th><th>Date</th></tr>
+                </thead>
+                <tbody id="debt-list"></tbody>
+            </table>
+            
+            <div class="summary">
+                <h3>Summary</h3>
+                <p>Total Sales: Ksh <span id="total-sales">0</span></p>
+                <p>Total Debts: Ksh <span id="total-debts">0</span></p>
+            </div>
+            
+            <button id="clear-records-btn">Clear Records</button>
+            <button id="close-system-btn">Close System</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
